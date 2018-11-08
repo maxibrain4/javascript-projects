@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>countdowntimer</title>
+	<script>
+		function countdowntimer(){
+			if (hr.value > 0 && hr.value <= 60){
+				if(min.value == 0){
+					hr.value--;
+					min.value = 60;
+				}
+				if(min.value == ""){
+					hr.value--;
+					min.value=60;
+				}
+			}
+			if (min.value > 0 && min.value <= 60){
+				if(se.value == 0){
+				min.value--;
+				se.value = 60;
+				}
+	          if(se.value == ""){
+	          	min.value--;
+	          	se.value=60;
+	          }
+              }	         
+		if(se.value > 0 && se.value <= 60){
+			se.value--;
+			setTimeout( countdowntimer, 1000);
+		}
+		if (se.value <= 9) {
+            se.value = "0" + se.value;
+		} 
+		if (se.value <= 00){
+				se.value = 0;
+		}
+		 if (hr.value <= 0 && min.value <= 0 && se.value <= 0  ){
+	          	alert("timeup")
+	          }
+	}
+		
+	</script>
+	<style>
+	div{background-image:url('sis.jpg');
+	height:300px;
+	width: 70%;
+     margin-top:100px;
+     margin-bottom: 100px;
+     margin-left:150px;
+     border-radius:25px    
+	}	
+	input{
+		margin-top:40px;
+		margin-left:50px;
+		margin-right:10px;
+		padding-bottom: 20px;
+		text-align:center;
+     font-size:16px
+     
+	}
+
+	button{
+		margin-top:30px;
+		margin-left:350px;
+		padding:20px 20px 20px 20px;
+	}
+	</style>
+</head>
+<body>
+<div>
+     <h1 align="center">COUNTDOWN TIMER</h1>
+	<input type="text" id="hr" placeholder="--HOUR--"><input type="text" id="min" placeholder="--MINUTES--"><input type="text" id="se" placeholder="--SECONDS--">
+     <br> <button onclick="countdowntimer()">START</button>	
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>stopwatch</title>
+	<script>
+		function stopw(){
+        if (min.value == 60) {
+        	min.value = 0;
+        	hr.value ++;
+        }
+		if(sec.value == 60){
+			sec.value = 0;
+			min.value++;
+		}
+       if(milli.value == 99){
+       	sec.value++;
+       }
+
+
+        var ml = milli.value;
+        ml++;
+		 if (ml > 99){
+		 	milli.value = 0;
+		 }
+		 else{
+		 	milli.value=ml;
+		 }
+
+		 setTimeout(stopw,1)
+        }
+
+	</script>
+	<style>
+	div{background-image:url('shooting-pc.jpg');
+	height:300px;
+	width: 80%;
+     margin-top:100px;
+     margin-bottom: 100px;
+     margin-left:100px;
+     border-radius:25px    
+	}	
+	#hr,#min,#sec{
+	margin-top:40px;
+	margin-left:30px;
+	margin-right:10px;
+	padding-bottom: 20px;
+	text-align:center;
+     font-size:16px
+     
+	}
+	#milli{
+		padding-bottom:20px;
+	    text-align:center;
+	}
+
+	button{
+		margin-top:30px;
+		margin-left:450px;
+		padding:20px 20px 20px 20px;
+	}
+	
+	</style>
+</head>
+<body>
+<div>
+<h1 align="center">STOPWATCH</h1>
+	<input type="text" id="hr" placeholder="--HOUR--"><input type="text" id="min" placeholder="--MINUTES--"><input type="text" id="sec" placeholder="--SECONDS--"><input type="text" id="milli" placeholder="--MILLI--">
+     <br> <button onclick="stopw()">START</button>
+</div>
+</body>
+</html>
